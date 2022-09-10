@@ -3,9 +3,9 @@ package Lab3;
 public class Start {
     public static void main(String[] args) {
         Shape s1 = new Circle(5.5, "RED", false); // Upcast Circle to Shape
-        System.out.println(s1); // which version?
-        System.out.println(s1.getArea()); // which version?
-        System.out.println(s1.getPerimeter()); // which version?
+        System.out.println(s1);
+        System.out.println(s1.getArea());
+        System.out.println(s1.getPerimeter());
         System.out.println(s1.getColor());
         System.out.println(s1.isFilled());
         //System.out.println(s1.getRadius()); // Увидит только абстрактные классы, которые переопределили + свои методы
