@@ -6,15 +6,15 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class Table extends JFrame  {
-    int AC;
-    int RE;
+    int AC=0;
+    int RE=0;
     String result="Result: "+ AC +" X "+ RE;
     String scorer="Last Scorer: ";
     String winner="Winner :";
     Font font = new Font("Times new roman",Font.PLAIN,20);
      JLabel rlable = new JLabel(result, SwingConstants.CENTER);
      JLabel slable = new JLabel(scorer+"N/A",SwingConstants.CENTER);
-    JLabel wlable = new JLabel(winner+"DRAW",SwingConstants.CENTER);
+    JLabel wlable = new JLabel(winner+"DRAW");
      JButton abutton=new JButton("AC Milan");
     JButton rbutton=new JButton("Real Madrid");
     public Table() throws HeadlessException {
@@ -49,6 +49,35 @@ public class Table extends JFrame  {
         add(abutton);
         abutton.setFont(font);
         abutton.setBounds(0,0,135,300);
+        abutton.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                AC+=1;
+                rlable.setText("Result: "+ AC +" X "+ RE);
+                slable.setText(scorer+ abutton.getText());
+                wlable.setText(winner+win());
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
 
 
 
@@ -56,47 +85,50 @@ public class Table extends JFrame  {
         add(rbutton);
         rbutton.setFont(font);
         rbutton.setBounds(335,0,150,300);
+        rbutton.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                RE+=1;
+                rlable.setText("Result: "+ AC +" X "+ RE);
+                slable.setText(scorer+ rbutton.getText());
+                wlable.setText(winner+win());
+            }
 
+            @Override
+            public void mousePressed(MouseEvent e) {
 
+            }
 
+            @Override
+            public void mouseReleased(MouseEvent e) {
 
+            }
 
+            @Override
+            public void mouseEntered(MouseEvent e) {
 
+            }
 
+            @Override
+            public void mouseExited(MouseEvent e) {
 
-
-
+            }
+        });
         setVisible(true);
     }
 
     public static void main(String[] args) {
         new Table();
     }
+    public String win(){
+        if (AC>RE)
+            return abutton.getText();
+        else if (RE>AC)
+            return rbutton.getText();
+        else
+            return "DRAW";
+    }
 
 
 }
-class MyMouse extends JFrame
-{
-    JLabel lbl = new JLabel("");
-    public MyMouse()
-    {
-        super("Dude! Where's my mouse ?");
-        setSize(400,400);
-        setLayout(new BorderLayout());
-        add(lbl,BorderLayout.SOUTH);
-        addMouseListener(
-                new MouseListener()
-        {
-            public void mouseExited(MouseEvent a){}
-            public void mouseClicked(MouseEvent a)
-            {lbl.setText("X="+a.getX()+" Y="+a.getY());}
-            public void mouseEntered(MouseEvent a) {}
-            public void mouseReleased(MouseEvent a) {}
-            public void mousePressed(MouseEvent a) {}
-        });
-    }
-    public static void main(String[]args)
-    {
-        new MyMouse().setVisible(true);
-    }
-}
+
