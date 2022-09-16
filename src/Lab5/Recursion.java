@@ -18,11 +18,6 @@ public class Recursion {
         };
         return b;
     };
-
-    public static void main(String[] args) {
-        Recursion rec =new Recursion();
-        System.out.println(rec.counter());
-    }
     public int counter(){
         int a=0;
         Scanner in = new Scanner(System.in);
@@ -34,6 +29,23 @@ public class Recursion {
 
         }else
             return 0;
+    }
+    public void nochet(){
+        Scanner in = new Scanner(System.in);
+        int a=in.nextInt();
+        if (a==0)
+            return;
+        else
+            if(a%2!=0){
+                System.out.println(a);
+                nochet();
+            }
+            else
+                nochet();
+    }
+    public static void main(String[] args) {
+        Recursion rec =new Recursion();
+        rec.nochet();
 
     }
 }
