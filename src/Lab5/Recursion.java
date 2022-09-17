@@ -2,7 +2,7 @@ package Lab5;
 
 import java.util.Scanner;
 
-public class Recursion {
+public class   Recursion {
 
     int b=0;
 
