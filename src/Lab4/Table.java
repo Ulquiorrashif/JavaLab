@@ -17,7 +17,7 @@ public class Table extends JFrame  {
     JLabel wlable = new JLabel(winner+"DRAW");
      JButton abutton=new JButton("AC Milan");
     JButton rbutton=new JButton("Real Madrid");
-    public Table() throws HeadlessException {
+    public Table()  {
         setLayout(null);
         setSize(500,339);
 

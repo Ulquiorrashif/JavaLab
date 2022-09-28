@@ -2,6 +2,12 @@ package Lab3;
 
 public class Start {
     public static void main(String[] args) {
+        double a = 5.6;
+        int b = (int)a; // 5
+
+
+
+
         Shape s1 = new Circle(5.5, "RED", false); // Upcast Circle to Shape
         System.out.println(s1);
         System.out.println(s1.getArea());
